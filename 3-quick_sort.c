@@ -23,7 +23,7 @@ void quick_sort(int *array, size_t size)
  */
 void quick_sort_rec(int *array, int low, int high, size_t size)
 {
-	 int pivot_index;
+	int pivot_index;
 
 	if (low < high)
 	{
@@ -41,41 +41,34 @@ void quick_sort_rec(int *array, int low, int high, size_t size)
  * @size: full size of the array
  * Return: pivot index
  */
-int partition(int *array, int low, int high, size_t size)
+int partition(int *array, int left, int right, size_t size)
 {
-	int pivot = array[high];
-	int i = low - 1;
+	int start_1, start_2, pivot, temp;
 
-	for (int j = low; j < high; j++)
+	pivot = array[right];
+	start_1 = left;
+
+	for (start_2 = left; start_2 < right; start_2++)
 	{
-		if (array[j] <= pivot)
+		if (array[start_2] < pivot)
 		{
-			i++;
-			if (i != j)
+			if (start_1 != start_2)
 			{
-				swap(&array[i], &array[j]);
+				temp = array[start_2];
+				array[start_2] = array[start_1];
+				array[start_1] = temp;
 				print_array(array, size);
 			}
+			start_1++;
 		}
 	}
-
-	if (array[i + 1] != array[high])
+	if (array[start_1] != array[right])
 	{
-		swap(&array[i + 1], &array[high]);
+		temp = array[start_1];
+		array[start_1] = array[right];
+		array[right] = temp;
 		print_array(array, size);
 	}
 
-	return (i + 1);
-}
-
-/**
- * swap - Swaps two integers in an array
- * @a: pointer to the first integer
- * @b: pointer to the second integer
- */
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+	return (start_1);
 }
