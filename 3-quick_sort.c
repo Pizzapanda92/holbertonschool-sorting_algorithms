@@ -34,13 +34,15 @@ void quick_sort_rec(int *array, int low, int high, size_t size)
 }
 
 /**
- * partition - Partitions the array using Lomuto partition scheme
- * @array: array to be partitioned
- * @low: leftmost index of the subarray
- * @high: rightmost index of the subarray
- * @size: full size of the array
- * Return: pivot index
+ * partition - Partitions the array using the Lomuto partition scheme
+ * @array: The array to be partitioned
+ * @left: The leftmost index of the subarray
+ * @right: The rightmost index of the subarray
+ * @size: The full size of the array
+ *
+ * Return: The index of the pivot after partitioning.
  */
+
 int partition(int *array, int left, int right, size_t size)
 {
 	int start_1, start_2, pivot, temp;
