@@ -23,9 +23,11 @@ void quick_sort(int *array, size_t size)
  */
 void quick_sort_rec(int *array, int low, int high, size_t size)
 {
+	 int pivot_index;
+
 	if (low < high)
 	{
-		int pivot_index = partition(array, low, high, size);
+		pivot_index = partition(array, low, high, size);
 		quick_sort_rec(array, low, pivot_index - 1, size);
 		quick_sort_rec(array, pivot_index + 1, high, size);
 	}
@@ -63,7 +65,7 @@ int partition(int *array, int low, int high, size_t size)
 		print_array(array, size);
 	}
 
-	return i + 1;
+	return (i + 1);
 }
 
 /**
