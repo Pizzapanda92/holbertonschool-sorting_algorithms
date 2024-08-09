@@ -6,6 +6,7 @@
  * @array: array to be sorted
  * @size: size of the array
  */
+
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
@@ -15,12 +16,13 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * quick_sort_rec - Recursive function to perform Quick sort
- * @array: array to be sorted
- * @low: leftmost index of the subarray
- * @high: rightmost index of the subarray
- * @size: full size of the array
- */
+* quick_sort_rec - Recursive function to perform Quick sort
+* @array: array to be sorted
+* @low: leftmost index of the subarray
+* @high: rightmost index of the subarray
+* @size: full size of the array
+*/
+
 void quick_sort_rec(int *array, int low, int high, size_t size)
 {
 	int pivot_index;
